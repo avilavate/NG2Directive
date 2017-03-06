@@ -5,16 +5,19 @@ import { LogService } from "./log.service";
 export class ChatService {
   sendEvent: EventEmitter<string> = new EventEmitter<string>();
   messages: string[] = [];
-  constructor(private logSvc:LogService){}
-  
-  public Send(text: string) {
-    this.sendEvent.emit(text);
-    this.logSvc.Write(text+ "written :");
+  constructor(private logSvc: LogService) {
+    this.sendEvent.subscribe((message) => {
+      this.messages.push(message);
+    });
   }
 
-  public Recieve() {
-    this.sendEvent.subscribe((message) => {
-    this.messages.push(message);
-    })
+  public Send(text: string) {
+    this.sendEvent.emit(text);
+    this.logSvc.Write(text + " written :");
+  }
+
+  public Recieve(): string[] {
+    this.logSvc.Write(this.messages.length.toString());
+    return this.messages;
   }
 }

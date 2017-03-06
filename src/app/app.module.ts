@@ -13,6 +13,8 @@ import { HostbindingBustedDirective } from './hostbinding-busted.directive';
 
 //NG2 Service:
 import {LogService} from "./log.service";
+import { TextReaderComponent } from './text-reader/text-reader.component';
+import {ChatService} from "./chat.service";
 
 @NgModule({
   declarations: [
@@ -22,14 +24,15 @@ import {LogService} from "./log.service";
     DesugaringDirective,
     CustomDirectiveDirective,
     OnChangeDemoComponent,
-    HostbindingBustedDirective
+    HostbindingBustedDirective,
+    TextReaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [LogService],
+  providers: [LogService, ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

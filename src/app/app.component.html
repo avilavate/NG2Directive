@@ -46,7 +46,14 @@
 <h1>HostBinding Busted</h1>
 <input type="text" appHostbindingBusted value="Some Value!"/>
 
+<hr>
+<h2>Service Demo</h2>
+<h4>Sender Component</h4>
+<input type="text" #input>
+<button (click)="send(input.value)">send</button>
+<h4>Reciever Component</h4>
+<app-text-reader></app-text-reader>
 
-<hr>	
-<hr>
-<hr>
+<br>
+<br>
+<br>
