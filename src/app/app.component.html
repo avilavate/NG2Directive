@@ -1,3 +1,52 @@
 <h1>
-  {{title}}
+	{{title}}
 </h1>
+<h1>Directives</h1>
+<div ngClass="border">Some text to test styles</div>
+<hr>
+<h1>Element Ref Directive</h1>
+<div style="height:100px; width: 100px" appMyDirective></div>
+<hr>
+<h1>Hostlistener/HostBinding Demo</h1>
+<div style="height:100px; width: 100px; border:1px 1px 1px 1px" appHostListner="green">Test Me</div>
+<hr>
+<h1>Desugaring Directive</h1>
+<div *ngIf="Selected">
+	<div>Some Text {{Selected}}</div>
+</div>
+<template [ngIf]="Selected">
+	<div>Some Text {{Selected}}</div>
+</template>
+<button (click)="toggle()">Click</button>
+<hr>
+<h1>NG-Switch</h1>
+<div [ngSwitch]="Swith">
+	<div *ngSwitchCase=100>100</div>
+	<div *ngSwitchCase=10>10</div>
+</div>
+<hr>
+<h1>Desugared Switch</h1>
+<div [ngSwitch]="Swith">
+	<template [ngSwitchCase]=100>100</template>
+	<template [ngSwitchCase]=10>10</template>
+</div>
+<button (click)="toggleSwitch()">Toggle Switch</button>
+<hr>
+<h1>Custom Directive Show On/Off</h1>
+<template [disable]="false">
+	<div>(Desugared) Currect disable value: {{disable}}</div>
+</template>
+<div *disable="false">
+	<div>Currect disable value:{{disable}}</div>
+</div>
+<hr>
+<h1>on Changes...</h1>
+<app-on-change-demo another="Some another value">Loading app-on-change-demo</app-on-change-demo>
+<hr>
+<h1>HostBinding Busted</h1>
+<input type="text" appHostbindingBusted value="Some Value!"/>
+
+
+<hr>	
+<hr>
+<hr>
